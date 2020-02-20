@@ -49,6 +49,39 @@ class InitializedProvider extends React.Component {
       });
     };
 
+    this.saveToPDF = () => {
+      // when adding new controller code, it needs to be added to this.state = ...
+      console.log("save to pdf");
+      // this.saveDataToPDF();
+      this.saveScreenToPDF();
+    };
+
+    this.saveDataToPDF = () => {
+      // when adding new controller code, it needs to be added to this.state = ...
+      console.log("save to pdf");
+      const jsPDF = require("jspdf");
+      const pdf = new jsPDF();
+      pdf.text("Hello world!", 10, 10);
+      pdf.save("data.pdf");
+    };
+
+    this.saveScreenToPDF = () => {
+      // when adding new controller code, it needs to be added to this.state = ...
+      const html2pdf = require("html2pdf.js");
+      var opt = {
+        margin: 1,
+        filename: "screen.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "letter", orientation: "portrait" }
+      };
+      var element = document.getElementById("element-to-print");
+      html2pdf()
+        .from(element)
+        .set(opt)
+        .save();
+    };
+
     this.pushCharge = charge => {
       this.setState({
         caseData: {
@@ -78,6 +111,7 @@ class InitializedProvider extends React.Component {
       ...caseObj,
       pushCharge: this.pushCharge,
       reset: this.reset,
+      saveToPDF: this.saveToPDF,
       updater: this.updater
     };
   }
