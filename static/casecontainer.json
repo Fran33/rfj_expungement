@@ -2,8 +2,9 @@
   "evaluatorName": "Jane Smith Esq",
   "evaluatorComments": "Advice to client / notes about case",
   "client": {
-    "dob": "01-01-1990",
-    "isOnProbation": true,
+    "dob": "11/19/1990",
+    "terminationDate": "12/15/2020",
+    "isOnProbation": false,
     "name": "Joe Smith",
     "pdId": "xyz-123",
     "pendingCases": [{ "offense": "22–3225.03a Misdemeanor insurance fraud" }]
@@ -11,7 +12,7 @@
   "case": {
     "id": "",
     "isConvicted": null,
-    "terminationDate": "",
+    "terminationDate": "10/19/2018",
     "charges": {
       "Charge 1": {
         "classification": "Felony",

@@ -49,20 +49,15 @@ class InitializedProvider extends React.Component {
       });
     };
 
-    this.saveToPDF = () => {
-      // when adding new controller code, it needs to be added to this.state = ...
-      console.log("save to pdf");
-      // this.saveDataToPDF();
-      this.saveScreenToPDF();
-    };
-
     this.saveDataToPDF = () => {
       // when adding new controller code, it needs to be added to this.state = ...
-      console.log("save to pdf");
       const jsPDF = require("jspdf");
       const pdf = new jsPDF();
-      pdf.text("Hello world!", 10, 10);
+      pdf.text("Client Name", 10, 10);
+      pdf.text(this.state.caseData.client.name, 50, 10);
       pdf.save("data.pdf");
+      // or try
+      // https://www.npmjs.com/package/pdf-lib
     };
 
     this.saveScreenToPDF = () => {
@@ -111,7 +106,8 @@ class InitializedProvider extends React.Component {
       ...caseObj,
       pushCharge: this.pushCharge,
       reset: this.reset,
-      saveToPDF: this.saveToPDF,
+      saveDataToPDF: this.saveDataToPDF,
+      saveScreenToPDF: this.saveScreenToPDF,
       updater: this.updater
     };
   }

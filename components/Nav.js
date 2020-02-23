@@ -87,9 +87,22 @@ export default function NavBar() {
                 <Button
                   color="inherit"
                   className={classes.button}
-                  onClick={value.saveToPDF}
+                  onClick={value.saveDataToPDF}
                 >
-                  Save to PDF
+                  Save Fields to PDF
+                </Button>
+              );
+            }}
+          </CaseContext.Consumer>
+          <CaseContext.Consumer>
+            {value => {
+              return (
+                <Button
+                  color="inherit"
+                  className={classes.button}
+                  onClick={value.saveScreenToPDF}
+                >
+                  Save Screen Cap to PDF
                 </Button>
               );
             }}
